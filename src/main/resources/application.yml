@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: ${PROFILE:dev}
+  application:
+    name: web-provider
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    username: ${RABBITMQ_USERNAME:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
+    port: ${RABBITMQ_PORT:5672}
+    template:
+      default-receive-queue: ${TEMP_DEFAULT_QUEUE:carQueue}
+      exchange: ${TEMP_EXCHANGE:carExchange}
+      routing-key: ${TEMP_ROUTING_KEY:carRoutingKey}
+      vhost: ${VHOST:cpp}
+
+
+
