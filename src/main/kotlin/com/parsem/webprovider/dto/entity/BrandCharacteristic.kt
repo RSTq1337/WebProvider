@@ -5,6 +5,7 @@ import javax.persistence.*
 @Table(name = "BrandCharacteristic")
 @Entity
 open class BrandCharacteristic {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
