@@ -1,21 +1,23 @@
 server:
-  port: 8080
+  port: ${WEB_PROVIDER_DEV_PORT}
 
 spring:
+  config:
+    import: optional:file:.env[.properties]
   profiles:
-    active: ${PROFILE:dev}
+    active: ${PROFILE}
   application:
     name: web-provider
   rabbitmq:
-    host: ${RABBITMQ_HOST:localhost}
-    username: ${RABBITMQ_USERNAME:guest}
-    password: ${RABBITMQ_PASSWORD:guest}
-    port: ${RABBITMQ_PORT:5672}
+    host: ${RABBITMQ_HOST}
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
+    port: ${RABBITMQ_PORT}
     template:
-      default-receive-queue: ${TEMP_DEFAULT_QUEUE:carQueue}
-      exchange: ${TEMP_EXCHANGE:carExchange}
-      routing-key: ${TEMP_ROUTING_KEY:carRoutingKey}
-      vhost: ${VHOST:cpp}
+      default-receive-queue: ${TEMP_DEFAULT_QUEUE}
+      exchange: ${TEMP_EXCHANGE}
+      routing-key: ${TEMP_ROUTING_KEY}
+      vhost: ${VHOST}
 
 
 
